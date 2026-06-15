@@ -1,0 +1,133 @@
+{
+  "activity": {
+    "titleZh": "泰国华夏善堂建设专项随喜认捐",
+    "titleTh": "กิจกรรมบริจาคเพื่อการก่อสร้างมูลนิธิหัวเซี่ยะประเทศไทย",
+    "subtitle": "发心护持 · 功德芳名永镌善堂",
+    "pdpaNotice": "依据泰国《个人资料保护法》(PDPA B.E. 2562) 严格保护捐赠人隐私",
+    "contactPhone": "+66-XXX-XXX-XXXX",
+    "adminPassword": "huaxia2026"
+  },
+  "parts": [
+    {
+      "id": "mile-pillar",
+      "name": "弥勒佛堂雕花立柱",
+      "meaning": "大肚能容,皆大欢喜。护持佛堂福柱,祈愿合家福慧圆满,福泽绵长。",
+      "unitPrice": 200000,
+      "unit": "尊位",
+      "target": 4,
+      "donated": 0,
+      "sort": 1,
+      "enabled": true
+    },
+    {
+      "id": "dragon-pillar",
+      "name": "门廊显赫龙柱",
+      "meaning": "龙腾盛世,威仪万千。护持善堂门面,彰显家族与企业传世之宏大功德。",
+      "unitPrice": 160000,
+      "unit": "尊位",
+      "target": 4,
+      "donated": 0,
+      "sort": 2,
+      "enabled": true
+    },
+    {
+      "id": "main-pillar",
+      "name": "顶天立地主柱",
+      "meaning": "中流砥柱,撑起人间慈善青天。功德芳名将永久铭刻于主柱之上。",
+      "unitPrice": 100000,
+      "unit": "尊位",
+      "target": 60,
+      "donated": 0,
+      "sort": 3,
+      "enabled": true
+    },
+    {
+      "id": "foundation-pile",
+      "name": "福慧地基桩",
+      "meaning": "万丈高楼,始于地基。认持基桩,寓意根基稳固,子孙后代安稳无忧。",
+      "unitPrice": 36000,
+      "unit": "尊位",
+      "target": 147,
+      "donated": 0,
+      "sort": 4,
+      "enabled": true
+    },
+    {
+      "id": "step",
+      "name": "同登觉路台阶",
+      "meaning": "拾级而上,步步高升。祝发心者学业、事业、家道蒸蒸日上。",
+      "unitPrice": 16000,
+      "unit": "级",
+      "target": 180,
+      "donated": 0,
+      "sort": 5,
+      "enabled": true
+    },
+    {
+      "id": "stone-rail",
+      "name": "护持石栏立柱",
+      "meaning": "慈悲扶持,相互成就。护持正道,出入平安,广结善缘。",
+      "unitPrice": 8000,
+      "unit": "根",
+      "target": 220,
+      "donated": 0,
+      "sort": 6,
+      "enabled": true
+    },
+    {
+      "id": "light-lamp",
+      "name": "破暗光明灯",
+      "meaning": "点亮心灯,照破诸暗。祈愿发心者前途光明,智慧广开。",
+      "unitPrice": 1800,
+      "unit": "盏",
+      "target": 300,
+      "donated": 0,
+      "sort": 7,
+      "enabled": true
+    },
+    {
+      "id": "brick",
+      "name": "积福宝砖",
+      "meaning": "添砖加瓦,聚沙成塔。万家同心起筑,福报绵延不绝。",
+      "unitPrice": 80,
+      "unit": "块",
+      "target": 86000,
+      "donated": 0,
+      "sort": 8,
+      "enabled": true
+    },
+    {
+      "id": "tile",
+      "name": "广庇琉璃瓦",
+      "meaning": "片瓦遮雨,广庇孤寒。造浮屠之功德,庇护合家出入平安、四季吉祥。",
+      "unitPrice": 40,
+      "unit": "片",
+      "target": 658000,
+      "donated": 0,
+      "sort": 9,
+      "enabled": true
+    }
+  ],
+  "banks": [
+    {
+      "id": "kbth",
+      "bankName": "ธนาคารกสิกรไทย (开泰银行 Kasikornbank)",
+      "accountZh": "泰国华夏善堂",
+      "accountTh": "มูลนิธิหัวเซี่ยะประเทศไทย",
+      "accountNo": "XXX-X-XXXXX-X",
+      "sort": 1,
+      "enabled": true
+    },
+    {
+      "id": "promptpay",
+      "bankName": "PromptPay (泰国国家电子支付)",
+      "accountZh": "泰国华夏善堂",
+      "accountTh": "มูลนิธิหัวเซี่ยะประเทศไทย",
+      "accountNo": "0X-XXXX-XXXX",
+      "sort": 2,
+      "enabled": true
+    }
+  ],
+  "records": [],
+  "generatedAt": "2026-06-14T12:20:08.054463+07:00"
+}

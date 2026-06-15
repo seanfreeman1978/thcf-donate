@@ -1,0 +1,536 @@
+{
+  "settings": {
+    "titleZh": "泰国华夏善堂建设专项随喜认捐",
+    "titleTh": "กิจกรรมบริจาคเพื่อการก่อสร้างมูลนิธิหัวเซี่ยะประเทศไทย",
+    "titleEn": "Thailand Huaxia Foundation Construction Donation",
+    "subtitleZh": "发心护持 · 功德芳名永镌善堂",
+    "subtitleTh": "ร่วมบุญใหญ่ สร้างศาลเจ้า ถาวรวัตถุ",
+    "subtitleEn": "Support the Construction · Your Name Forever Engraved",
+    "pdpaZh": "依据泰国《个人资料保护法》(PDPA B.E. 2562) 严格保护捐赠人隐私",
+    "pdpaTh": "ข้อมูลส่วนบุคคลของท่านได้รับการคุ้มครองตาม PDPA พ.ศ. 2562",
+    "pdpaEn": "Your personal data is protected under PDPA B.E. 2562",
+    "adminPassword": "Thxcf@2026"
+  },
+  "parts": [
+    {
+      "id": "mile-pillar",
+      "nameZh": "弥勒佛堂雕花立柱",
+      "nameTh": "เสาแกะสลักวิหาร",
+      "nameEn": "Maitreya Hall Carved Pillars",
+      "target": 800000,
+      "raised": 0,
+      "donors": 0,
+      "sort": 1,
+      "enabled": true,
+      "unitPrice": 200000,
+      "unit": "根"
+    },
+    {
+      "id": "dragon-pillar",
+      "nameZh": "门廊显赫龙柱",
+      "nameTh": "เสามังกรหน้าเวิ้ง",
+      "nameEn": "Grand Dragon Pillars",
+      "target": 640000,
+      "raised": 0,
+      "donors": 0,
+      "sort": 2,
+      "enabled": true,
+      "unitPrice": 160000,
+      "unit": "根"
+    },
+    {
+      "id": "main-pillar",
+      "nameZh": "顶天立地主柱",
+      "nameTh": "เสาหลักกลาง",
+      "nameEn": "Main Support Pillars",
+      "target": 6000000,
+      "raised": 0,
+      "donors": 0,
+      "sort": 3,
+      "enabled": true,
+      "unitPrice": 100000,
+      "unit": "根"
+    },
+    {
+      "id": "foundation-pile",
+      "nameZh": "福慧地基桩",
+      "nameTh": "เสาเข็มฐานราก",
+      "nameEn": "Foundation Piles",
+      "target": 5292000,
+      "raised": 0,
+      "donors": 0,
+      "sort": 4,
+      "enabled": true,
+      "unitPrice": 36000,
+      "unit": "根"
+    },
+    {
+      "id": "step",
+      "nameZh": "同登觉路台阶",
+      "nameTh": "บันไดสู่ธรรมะ",
+      "nameEn": "Enlightenment Steps",
+      "target": 2880000,
+      "raised": 0,
+      "donors": 0,
+      "sort": 5,
+      "enabled": true,
+      "unitPrice": 16000,
+      "unit": "级"
+    },
+    {
+      "id": "stone-rail",
+      "nameZh": "护持石栏立柱",
+      "nameTh": "ราวบันไดหิน",
+      "nameEn": "Stone Railings",
+      "target": 1760000,
+      "raised": 0,
+      "donors": 0,
+      "sort": 6,
+      "enabled": true,
+      "unitPrice": 8000,
+      "unit": "根"
+    },
+    {
+      "id": "light-lamp",
+      "nameZh": "破暗光明灯",
+      "nameTh": "โคมประทีป",
+      "nameEn": "Illumination Lamps",
+      "target": 540000,
+      "raised": 0,
+      "donors": 0,
+      "sort": 7,
+      "enabled": true,
+      "unitPrice": 1800,
+      "unit": "盏"
+    },
+    {
+      "id": "brick",
+      "nameZh": "积福宝砖",
+      "nameTh": "อิฐก่อสร้าง",
+      "nameEn": "Merit Bricks",
+      "target": 6880000,
+      "raised": 0,
+      "donors": 0,
+      "sort": 8,
+      "enabled": true,
+      "unitPrice": 80,
+      "unit": "块"
+    },
+    {
+      "id": "tile",
+      "nameZh": "广庇琉璃瓦",
+      "nameTh": "กระเบื้องมุงหลังคา",
+      "nameEn": "Glazed Tiles",
+      "target": 26320000,
+      "raised": 0,
+      "donors": 0,
+      "sort": 9,
+      "enabled": true,
+      "unitPrice": 40,
+      "unit": "片"
+    }
+  ],
+  "bank": {
+    "bankName": "ธนาคารกสิกรไทย 开泰银行 Kasikornbank",
+    "accountName": "มูลนิธิหัวเซียประเทศไทย",
+    "accountNo": "212-1-96633-9"
+  },
+  "records": [
+    {
+      "id": "DH-MQDQ570S",
+      "displayName": "乐捐12",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 12,
+      "amount": 960,
+      "donatedAt": "2026-06-12"
+    },
+    {
+      "id": "DH-MQDQ56LP",
+      "displayName": "乐捐11",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 11,
+      "amount": 880,
+      "donatedAt": "2026-06-11"
+    },
+    {
+      "id": "DH-MQDQ565S",
+      "displayName": "乐捐10",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 10,
+      "amount": 800,
+      "donatedAt": "2026-06-10"
+    },
+    {
+      "id": "DH-MQDQ55SQ",
+      "displayName": "乐捐9",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 9,
+      "amount": 720,
+      "donatedAt": "2026-06-09"
+    },
+    {
+      "id": "DH-MQDQ55E3",
+      "displayName": "乐捐8",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 8,
+      "amount": 640,
+      "donatedAt": "2026-06-08"
+    },
+    {
+      "id": "DH-MQDQ552H",
+      "displayName": "乐捐7",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 7,
+      "amount": 560,
+      "donatedAt": "2026-06-07"
+    },
+    {
+      "id": "DH-MQDQ54JH",
+      "displayName": "乐捐6",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 6,
+      "amount": 480,
+      "donatedAt": "2026-06-06"
+    },
+    {
+      "id": "DH-MQDQ546L",
+      "displayName": "乐捐5",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 5,
+      "amount": 400,
+      "donatedAt": "2026-06-05"
+    },
+    {
+      "id": "DH-MQDQ53RM",
+      "displayName": "乐捐4",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 4,
+      "amount": 320,
+      "donatedAt": "2026-06-04"
+    },
+    {
+      "id": "DH-MQDQ53F3",
+      "displayName": "乐捐3",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 3,
+      "amount": 240,
+      "donatedAt": "2026-06-03"
+    },
+    {
+      "id": "DH-MQDQ533H",
+      "displayName": "乐捐2",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 2,
+      "amount": 160,
+      "donatedAt": "2026-06-02"
+    },
+    {
+      "id": "DH-MQDQ52RG",
+      "displayName": "乐捐1",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 1,
+      "amount": 80,
+      "donatedAt": "2026-06-01"
+    },
+    {
+      "id": "DH-MQDPC2NK",
+      "displayName": "善信施主12",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 12,
+      "amount": 960,
+      "donatedAt": "2026-06-12"
+    },
+    {
+      "id": "DH-MQDPC2D7",
+      "displayName": "善信施主11",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 11,
+      "amount": 880,
+      "donatedAt": "2026-06-11"
+    },
+    {
+      "id": "DH-MQDPC22D",
+      "displayName": "善信施主10",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 10,
+      "amount": 800,
+      "donatedAt": "2026-06-10"
+    },
+    {
+      "id": "DH-MQDPC1S0",
+      "displayName": "善信施主9",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 9,
+      "amount": 720,
+      "donatedAt": "2026-06-09"
+    },
+    {
+      "id": "DH-MQDPC1H8",
+      "displayName": "善信施主8",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 8,
+      "amount": 640,
+      "donatedAt": "2026-06-08"
+    },
+    {
+      "id": "DH-MQDPC101",
+      "displayName": "善信施主7",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 7,
+      "amount": 560,
+      "donatedAt": "2026-06-07"
+    },
+    {
+      "id": "DH-MQDPC0PB",
+      "displayName": "善信施主6",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 6,
+      "amount": 480,
+      "donatedAt": "2026-06-06"
+    },
+    {
+      "id": "DH-MQDPC07Z",
+      "displayName": "善信施主5",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 5,
+      "amount": 400,
+      "donatedAt": "2026-06-05"
+    },
+    {
+      "id": "DH-MQDPBZX8",
+      "displayName": "善信施主4",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 4,
+      "amount": 320,
+      "donatedAt": "2026-06-04"
+    },
+    {
+      "id": "DH-MQDPBZMW",
+      "displayName": "善信施主3",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 3,
+      "amount": 240,
+      "donatedAt": "2026-06-03"
+    },
+    {
+      "id": "DH-MQDPBZBC",
+      "displayName": "善信施主2",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 2,
+      "amount": 160,
+      "donatedAt": "2026-06-02"
+    },
+    {
+      "id": "DH-MQDPBZ0Q",
+      "displayName": "善信施主1",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 1,
+      "amount": 80,
+      "donatedAt": "2026-06-01"
+    },
+    {
+      "id": "DH-MQDOX6F2",
+      "displayName": "测试用户9",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 9,
+      "amount": 720,
+      "donatedAt": "2026-06-09"
+    },
+    {
+      "id": "DH-MQDOX64D",
+      "displayName": "测试用户8",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 8,
+      "amount": 640,
+      "donatedAt": "2026-06-08"
+    },
+    {
+      "id": "DH-MQDOX5QG",
+      "displayName": "测试用户7",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 7,
+      "amount": 560,
+      "donatedAt": "2026-06-07"
+    },
+    {
+      "id": "DH-MQDOX5F8",
+      "displayName": "测试用户6",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 6,
+      "amount": 480,
+      "donatedAt": "2026-06-06"
+    },
+    {
+      "id": "DH-MQDOX54U",
+      "displayName": "测试用户5",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 5,
+      "amount": 400,
+      "donatedAt": "2026-06-05"
+    },
+    {
+      "id": "DH-MQDOX4N9",
+      "displayName": "测试用户4",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 4,
+      "amount": 320,
+      "donatedAt": "2026-06-04"
+    },
+    {
+      "id": "DH-MQDOX48K",
+      "displayName": "测试用户3",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 3,
+      "amount": 240,
+      "donatedAt": "2026-06-03"
+    },
+    {
+      "id": "DH-MQDOX3XE",
+      "displayName": "测试用户2",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 2,
+      "amount": 160,
+      "donatedAt": "2026-06-02"
+    },
+    {
+      "id": "DH-MQDOX3N9",
+      "displayName": "测试用户1",
+      "title": "善信",
+      "partName": "积福宝砖",
+      "quantity": 1,
+      "amount": 80,
+      "donatedAt": "2026-06-01"
+    },
+    {
+      "id": "DH-MQDN2EAS",
+      "displayName": "犯法的",
+      "title": "男士",
+      "partName": "同登觉路台阶",
+      "quantity": 1,
+      "amount": 16000,
+      "donatedAt": "2026-06-14"
+    },
+    {
+      "id": "DH-MQDME52Q",
+      "displayName": "是啊发顺丰",
+      "partName": "积福宝砖",
+      "quantity": 10,
+      "amount": 800,
+      "donatedAt": "2026-06-14"
+    },
+    {
+      "id": "DH-MQDMDWZA",
+      "displayName": "有try",
+      "partName": "护持石栏立柱",
+      "quantity": 4,
+      "amount": 32000,
+      "donatedAt": "2026-06-14"
+    },
+    {
+      "id": "DH-MQDMDLM5",
+      "displayName": "发撒地方",
+      "partName": "门廊显赫龙柱",
+      "quantity": 2,
+      "amount": 320000,
+      "donatedAt": "2026-06-14"
+    },
+    {
+      "id": "DH-MQDMDFT2",
+      "displayName": "水电费",
+      "partName": "门廊显赫龙柱",
+      "quantity": 1,
+      "amount": 160000,
+      "donatedAt": "2026-06-14"
+    },
+    {
+      "id": "DH-MQDMD888",
+      "displayName": "是啊发烧",
+      "partName": "门廊显赫龙柱",
+      "quantity": 1,
+      "amount": 160000,
+      "donatedAt": "2026-06-14"
+    },
+    {
+      "id": "DH-MQDMD4Q6",
+      "displayName": "放假撒的浪费",
+      "partName": "门廊显赫龙柱",
+      "quantity": 1,
+      "amount": 160000,
+      "donatedAt": "2026-06-14"
+    },
+    {
+      "id": "DH-MQDMCW3S",
+      "displayName": "12张三",
+      "partName": "广庇琉璃瓦",
+      "quantity": 56777,
+      "amount": 2271080,
+      "donatedAt": "2026-06-14"
+    },
+    {
+      "id": "DH-MQDMBWGI",
+      "displayName": "发撒地方",
+      "partName": "顶天立地主柱",
+      "quantity": 5,
+      "amount": 500000,
+      "donatedAt": "2026-06-14"
+    },
+    {
+      "id": "DH-MQDMBPOD",
+      "displayName": "水电费",
+      "partName": "破暗光明灯",
+      "quantity": 1,
+      "amount": 1800,
+      "donatedAt": "2026-06-14"
+    },
+    {
+      "id": "DH-MQDMBJG5",
+      "displayName": "策士",
+      "partName": "顶天立地主柱",
+      "quantity": 1,
+      "amount": 100000,
+      "donatedAt": "2026-06-14"
+    },
+    {
+      "id": "DH-MQDMB950",
+      "displayName": "测试",
+      "partName": "弥勒佛堂雕花立柱",
+      "quantity": 1,
+      "amount": 200000,
+      "donatedAt": "2026-06-14",
+      "title": "男士"
+    }
+  ],
+  "generatedAt": "2026-06-14T15:11:00+07:00"
+}
