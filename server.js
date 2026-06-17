@@ -177,10 +177,24 @@ app.post('/api/admin/import-records', upload.single('file'), (req, res) => {
 
     const imported = [];
     const errors = [];
+
+    const TITLE_MAP = {
+      '男士': '男士', 'mr': '男士', 'mr.': '男士', 'mister': '男士', 'สุภาพบุรุษ': '男士',
+      '女士': '女士', 'ms': '女士', 'ms.': '女士', 'miss': '女士', 'mrs': '女士', 'mrs.': '女士', 'สุภาพสตรี': '女士',
+      '善信': '善信', 'devotee': '善信', 'ผู้มีจิตศรัทธา': '善信',
+    };
+    function normalizeTitle(raw) {
+      const t = raw.trim();
+      if (TITLE_MAP[t]) return TITLE_MAP[t];
+      if (TITLE_MAP[t.toLowerCase()]) return TITLE_MAP[t.toLowerCase()];
+      return '善信';
+    }
+
     for (let i = 0; i < rows.length; i++) {
       const row = rows[i];
       const displayName = String(row['芳名'] || row['displayName'] || row['姓名'] || '').trim();
-      const title = String(row['称谓'] || row['title'] || '善信').trim();
+      const titleRaw = String(row['称谓'] || row['title'] || '').trim();
+      const finalTitle = titleRaw ? normalizeTitle(titleRaw) : '善信';
       const partName = String(row['认捐部件'] || row['partName'] || row['部件'] || '').trim();
       const quantity = parseInt(row['数量'] || row['quantity'] || 1, 10) || 1;
       const rawAmt = row['金额'] || row['amount'] || '';
@@ -192,7 +206,6 @@ app.post('/api/admin/import-records', upload.single('file'), (req, res) => {
         errors.push({ row: i + 2, 芳名: displayName, message: '缺少芳名或金额' });
         continue;
       }
-      const finalTitle = ['男士', '女士', '善信'].includes(title) ? title : '善信';
 
       imported.push({
         id: `DH-${Date.now().toString(36).toUpperCase()}-${i}`,
