@@ -172,8 +172,30 @@ app.post('/api/admin/import-records', upload.single('file'), (req, res) => {
     const wb = XLSX.read(req.file.buffer, { type: 'buffer' });
     if (wb.SheetNames.length === 0) return res.status(400).json({ error: 'empty sheet' });
     const ws = wb.Sheets[wb.SheetNames[0]];
-    const rows = XLSX.utils.sheet_to_json(ws);
-    if (rows.length === 0) return res.status(400).json({ error: 'Excel 无数据' });
+    const rowsRaw = XLSX.utils.sheet_to_json(ws);
+    if (rowsRaw.length === 0) return res.status(400).json({ error: 'Excel 无数据' });
+
+    const rows = rowsRaw.map(row => {
+      const cleaned = {};
+      for (const key of Object.keys(row)) {
+        cleaned[key.trim()] = row[key];
+      }
+      return cleaned;
+    });
+
+    function excelDate(val) {
+      if (!val) return '';
+      if (typeof val === 'string') {
+        const d = new Date(val);
+        if (!isNaN(d.getTime())) return d.toISOString().slice(0, 10);
+        return val.trim().slice(0, 10);
+      }
+      if (typeof val === 'number') {
+        const d = new Date((val - 25569) * 86400 * 1000);
+        if (!isNaN(d.getTime())) return d.toISOString().slice(0, 10);
+      }
+      return String(val).trim().slice(0, 10);
+    }
 
     const imported = [];
     const errors = [];
@@ -200,7 +222,7 @@ app.post('/api/admin/import-records', upload.single('file'), (req, res) => {
       const rawAmt = row['金额'] || row['amount'] || '';
       const amount = typeof rawAmt === 'number' ? rawAmt
         : Number(String(rawAmt).replace(/[฿,，\s]/g, '')) || 0;
-      const donatedAt = String(row['日期'] || row['donatedAt'] || row['认捐日期'] || new Date().toISOString().slice(0, 10)).trim().slice(0, 10);
+      const donatedAt = excelDate(row['日期'] || row['donatedAt'] || row['认捐日期']);
 
       if (!displayName || amount === 0) {
         errors.push({ row: i + 2, 芳名: displayName, message: '缺少芳名或金额' });
