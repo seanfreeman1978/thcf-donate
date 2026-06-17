@@ -179,22 +179,22 @@ app.post('/api/admin/import-records', upload.single('file'), (req, res) => {
     const errors = [];
 
     const TITLE_MAP = {
-      '男士': '男士', 'mr': '男士', 'mr.': '男士', 'mister': '男士', 'สุภาพบุรุษ': '男士',
+      '先生': '先生', 'mr': '先生', 'mr.': '先生', 'mister': '先生', 'สุภาพบุรุษ': '先生',
       '女士': '女士', 'ms': '女士', 'ms.': '女士', 'miss': '女士', 'mrs': '女士', 'mrs.': '女士', 'สุภาพสตรี': '女士',
-      '善信': '善信', 'devotee': '善信', 'ผู้มีจิตศรัทธา': '善信',
+      '善主': '善主', 'devotee': '善主', 'ผู้มีจิตศรัทธา': '善主',
     };
     function normalizeTitle(raw) {
       const t = raw.trim();
       if (TITLE_MAP[t]) return TITLE_MAP[t];
       if (TITLE_MAP[t.toLowerCase()]) return TITLE_MAP[t.toLowerCase()];
-      return '善信';
+      return '善主';
     }
 
     for (let i = 0; i < rows.length; i++) {
       const row = rows[i];
       const displayName = String(row['芳名'] || row['displayName'] || row['姓名'] || '').trim();
       const titleRaw = String(row['称谓'] || row['title'] || '').trim();
-      const finalTitle = titleRaw ? normalizeTitle(titleRaw) : '善信';
+      const finalTitle = titleRaw ? normalizeTitle(titleRaw) : '善主';
       const partName = String(row['认捐部件'] || row['partName'] || row['部件'] || '').trim();
       const quantity = parseInt(row['数量'] || row['quantity'] || 1, 10) || 1;
       const rawAmt = row['金额'] || row['amount'] || '';
