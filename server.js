@@ -263,6 +263,68 @@ app.post('/api/admin/import-records', upload.single('file'), (req, res) => {
   }
 });
 
+// Excel 导入部件
+app.post('/api/admin/import-parts', upload.single('file'), (req, res) => {
+  const { password, mode } = req.body;
+  const d = read();
+  if (!d) return res.status(500).json({ error: 'data lost' });
+  if (password !== d.settings.adminPassword) return res.status(403).json({ error: 'wrong password' });
+  if (!req.file) return res.status(400).json({ error: 'no file' });
+
+  try {
+    const wb = XLSX.read(req.file.buffer, { type: 'buffer' });
+    const sheetName = wb.SheetNames.length >= 2 ? wb.SheetNames[1] : wb.SheetNames[0];
+    const ws = wb.Sheets[sheetName];
+    const rowsRaw = XLSX.utils.sheet_to_json(ws);
+    if (rowsRaw.length === 0) return res.status(400).json({ error: 'Sheet "' + sheetName + '" 无数据' });
+
+    const rows = rowsRaw.map(row => {
+      const cleaned = {};
+      for (const key of Object.keys(row)) cleaned[key.trim()] = row[key];
+      return cleaned;
+    });
+
+    const imported = [];
+    const errors = [];
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i];
+      const nameZh = String(row['部件名称'] || row['nameZh'] || row['名称'] || '').trim();
+      if (!nameZh) { errors.push({ row: i + 2, message: '缺少部件名称' }); continue; }
+      imported.push({
+        id: 'p-' + Date.now().toString(36) + '-' + i,
+        nameZh,
+        nameTh: String(row['泰文名'] || row['nameTh'] || nameZh).trim(),
+        nameEn: String(row['英文名'] || row['nameEn'] || nameZh).trim(),
+        unit: String(row['单位'] || row['unit'] || '').trim(),
+        unitPrice: Number(row['单价'] || row['unitPrice'] || 0) || 0,
+        target: Number(row['目标'] || row['target'] || 0) || 0,
+        raised: 0, donors: 0,
+        sort: Number(row['排序'] || row['sort'] || i + 1) || i + 1,
+        enabled: String(row['启用'] || row['enabled'] || '').toLowerCase() !== 'false',
+      });
+    }
+
+    if (imported.length === 0) return res.status(400).json({ error: '没有可导入的有效数据', errors });
+
+    if (mode === 'overwrite') {
+      d.parts = imported;
+    } else {
+      const maxSort = d.parts.reduce((m, p) => Math.max(m, p.sort || 0), 0);
+      imported.forEach((p, idx) => { p.sort = maxSort + idx + 1; });
+      d.parts = [...(d.parts || []), ...imported];
+    }
+
+    write(d);
+    res.json({
+      success: true, mode: mode || 'append', sheet: sheetName,
+      imported: imported.length, totalParts: d.parts.length,
+      errors: errors.length > 0 ? errors.slice(0, 10) : undefined,
+    });
+  } catch (e) {
+    res.status(400).json({ error: 'Excel 解析失败: ' + e.message });
+  }
+});
+
 // SPA fallback
 app.get('*', (req, res) => {
   if (req.path.startsWith('/api/')) return res.status(404).json({ error: 'not found' });
