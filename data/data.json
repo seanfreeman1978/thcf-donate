@@ -23,7 +23,8 @@
       "sort": 1,
       "enabled": true,
       "unitPrice": 200000,
-      "unit": "根"
+      "unit": "根",
+      "targetQty": 4
     },
     {
       "id": "dragon-pillar",
@@ -36,7 +37,8 @@
       "sort": 2,
       "enabled": true,
       "unitPrice": 160000,
-      "unit": "根"
+      "unit": "根",
+      "targetQty": 4
     },
     {
       "id": "main-pillar",
@@ -49,7 +51,8 @@
       "sort": 3,
       "enabled": true,
       "unitPrice": 100000,
-      "unit": "根"
+      "unit": "根",
+      "targetQty": 60
     },
     {
       "id": "foundation-pile",
@@ -62,7 +65,8 @@
       "sort": 4,
       "enabled": true,
       "unitPrice": 36000,
-      "unit": "根"
+      "unit": "根",
+      "targetQty": 147
     },
     {
       "id": "step",
@@ -75,7 +79,8 @@
       "sort": 5,
       "enabled": true,
       "unitPrice": 16000,
-      "unit": "级"
+      "unit": "级",
+      "targetQty": 180
     },
     {
       "id": "stone-rail",
@@ -88,7 +93,8 @@
       "sort": 6,
       "enabled": true,
       "unitPrice": 8000,
-      "unit": "根"
+      "unit": "根",
+      "targetQty": 220
     },
     {
       "id": "light-lamp",
@@ -101,7 +107,8 @@
       "sort": 7,
       "enabled": true,
       "unitPrice": 1800,
-      "unit": "盏"
+      "unit": "盏",
+      "targetQty": 300
     },
     {
       "id": "brick",
@@ -114,7 +121,8 @@
       "sort": 8,
       "enabled": true,
       "unitPrice": 80,
-      "unit": "块"
+      "unit": "块",
+      "targetQty": 86000
     },
     {
       "id": "tile",
@@ -127,7 +135,8 @@
       "sort": 9,
       "enabled": true,
       "unitPrice": 40,
-      "unit": "片"
+      "unit": "片",
+      "targetQty": 658000
     }
   ],
   "bank": {

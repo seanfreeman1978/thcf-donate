@@ -106,7 +106,7 @@ app.post('/api/admin/update-record', (req, res) => {
 
 // Admin: update part (full)
 app.post('/api/admin/update-part', (req, res) => {
-  const { password, partId, nameZh, nameTh, nameEn, unitPrice, target, sort, enabled } = req.body;
+  const { password, partId, nameZh, nameTh, nameEn, unitPrice, targetQty, sort, enabled } = req.body;
   const d = read();
   if (!d) return res.status(500).json({ error: 'data lost' });
   if (password !== d.settings.adminPassword) return res.status(403).json({ error: 'wrong password' });
@@ -116,7 +116,8 @@ app.post('/api/admin/update-part', (req, res) => {
     nameTh: nameTh !== undefined ? nameTh : p.nameTh,
     nameEn: nameEn !== undefined ? nameEn : p.nameEn,
     unitPrice: unitPrice !== undefined ? Number(unitPrice) : p.unitPrice,
-    target: target !== undefined ? Number(target) : p.target,
+    targetQty: targetQty !== undefined ? Number(targetQty) : (p.targetQty || 0),
+    target: (unitPrice !== undefined ? Number(unitPrice) : p.unitPrice) * (targetQty !== undefined ? Number(targetQty) : (p.targetQty || 0)),
     sort: sort !== undefined ? Number(sort) : p.sort,
     enabled: enabled !== undefined ? enabled : p.enabled,
   } : p);
@@ -126,20 +127,23 @@ app.post('/api/admin/update-part', (req, res) => {
 
 // Admin: add part
 app.post('/api/admin/add-part', (req, res) => {
-  const { password, nameZh, nameTh, nameEn, unitPrice, target, sort, enabled } = req.body;
+  const { password, nameZh, nameTh, nameEn, unitPrice, targetQty, sort, enabled } = req.body;
   const d = read();
   if (!d) return res.status(500).json({ error: 'data lost' });
   if (password !== d.settings.adminPassword) return res.status(403).json({ error: 'wrong password' });
   if (!nameZh) return res.status(400).json({ error: 'nameZh required' });
   const id = `p-${Date.now().toString(36)}`;
   const maxSort = d.parts.reduce((m, p) => Math.max(m, p.sort), 0);
+  const up = Number(unitPrice) || 0;
+  const tq = Number(targetQty) || 0;
   d.parts.push({
     id,
     nameZh,
     nameTh: nameTh || nameZh,
     nameEn: nameEn || nameZh,
-    unitPrice: Number(unitPrice) || 0,
-    target: Number(target) || 0,
+    unitPrice: up,
+    targetQty: tq,
+    target: up * tq,
     raised: 0,
     donors: 0,
     sort: sort !== undefined ? Number(sort) : maxSort + 1,
@@ -290,14 +294,17 @@ app.post('/api/admin/import-parts', upload.single('file'), (req, res) => {
       const row = rows[i];
       const nameZh = String(row['部件名称'] || row['nameZh'] || row['名称'] || '').trim();
       if (!nameZh) { errors.push({ row: i + 2, message: '缺少部件名称' }); continue; }
+      const up = Number(row['单价'] || row['unitPrice'] || 0) || 0;
+      const tq = Number(row['目标数量'] || row['targetQty'] || 0) || 0;
       imported.push({
         id: 'p-' + Date.now().toString(36) + '-' + i,
         nameZh,
         nameTh: String(row['泰文名'] || row['nameTh'] || nameZh).trim(),
         nameEn: String(row['英文名'] || row['nameEn'] || nameZh).trim(),
         unit: String(row['单位'] || row['unit'] || '').trim(),
-        unitPrice: Number(row['单价'] || row['unitPrice'] || 0) || 0,
-        target: Number(row['目标'] || row['target'] || 0) || 0,
+        unitPrice: up,
+        targetQty: tq,
+        target: up * tq,
         raised: 0, donors: 0,
         sort: Number(row['排序'] || row['sort'] || i + 1) || i + 1,
         enabled: String(row['启用'] || row['enabled'] || '').toLowerCase() !== 'false',
