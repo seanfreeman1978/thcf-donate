@@ -164,6 +164,17 @@ app.post('/api/admin/delete-part', (req, res) => {
   res.json({ success: true });
 });
 
+// Admin: update settings (e.g. heroImage)
+app.post('/api/admin/update-settings', (req, res) => {
+  const { password, ...fields } = req.body;
+  const d = read();
+  if (!d) return res.status(500).json({ error: 'data lost' });
+  if (password !== d.settings.adminPassword) return res.status(403).json({ error: 'wrong password' });
+  d.settings = { ...d.settings, ...fields };
+  write(d);
+  res.json({ success: true });
+});
+
 // Excel 导入功德芳名录
 app.post('/api/admin/import-records', upload.single('file'), (req, res) => {
   const { password, mode } = req.body;
