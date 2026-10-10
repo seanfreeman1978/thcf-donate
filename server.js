@@ -49,7 +49,9 @@ app.get('/api/data', (_, res) => {
     donors: donorsByPart[p.id] || 0,
   }));
   d.generatedAt = new Date().toISOString();
-  res.json(d);
+  const result = { ...d };
+  delete result.pendingDonations; // 待审核数据不对外公开
+  res.json(result);
 });
 
 // Admin: add record
@@ -341,6 +343,65 @@ app.post('/api/admin/import-parts', upload.single('file'), (req, res) => {
   } catch (e) {
     res.status(400).json({ error: 'Excel 解析失败: ' + e.message });
   }
+});
+
+// 公开：提交护持登记（待审核）
+app.post('/api/donate', (req, res) => {
+  const { displayName, title, partName, quantity, amount, phone, note } = req.body;
+  const d = read();
+  if (!d) return res.status(500).json({ error: 'data lost' });
+  if (!displayName || !amount) return res.status(400).json({ error: 'missing fields' });
+  const id = `PEND-${Date.now().toString(36).toUpperCase()}`;
+  const item = {
+    id,
+    displayName: String(displayName).trim(),
+    title: title || '善主',
+    partName: partName || '',
+    quantity: Number(quantity) || 0,
+    amount: Number(amount) || 0,
+    phone: phone || '',
+    note: note || '',
+    createdAt: new Date().toISOString(),
+  };
+  d.pendingDonations = d.pendingDonations || [];
+  d.pendingDonations.unshift(item);
+  write(d);
+  res.json({ success: true, id });
+});
+
+// 管理：护持登记待审核列表
+app.post('/api/admin/pending-donations', (req, res) => {
+  const { password } = req.body;
+  const d = read();
+  if (!d) return res.status(500).json({ error: 'data lost' });
+  if (password !== d.settings.adminPassword) return res.status(403).json({ error: 'wrong password' });
+  res.json({ pending: d.pendingDonations || [] });
+});
+
+// 管理：审核护持登记（approve 并入功德榜 / reject 驳回删除）
+app.post('/api/admin/review-donation', (req, res) => {
+  const { password, id, action } = req.body;
+  const d = read();
+  if (!d) return res.status(500).json({ error: 'data lost' });
+  if (password !== d.settings.adminPassword) return res.status(403).json({ error: 'wrong password' });
+  const list = d.pendingDonations || [];
+  const item = list.find((x) => x.id === id);
+  if (!item) return res.status(404).json({ error: 'not found' });
+  d.pendingDonations = list.filter((x) => x.id !== id);
+  if (action === 'approve') {
+    d.records = d.records || [];
+    d.records.unshift({
+      id: `DH-${Date.now().toString(36).toUpperCase()}`,
+      displayName: item.displayName,
+      title: item.title || '善主',
+      partName: item.partName || '',
+      quantity: item.quantity || 0,
+      amount: item.amount,
+      donatedAt: new Date().toISOString().slice(0, 10),
+    });
+  }
+  write(d);
+  res.json({ success: true });
 });
 
 // SPA fallback
